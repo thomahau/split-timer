@@ -1,12 +1,24 @@
 import React from 'react';
 import { formatTime } from '../helpers';
 
-export default function SplitList({ splits, handleClick }) {
+export default function SplitList({ splits, highlighted, handleClick }) {
+  if (!splits.length) return null;
+
   const splitElements = splits.map(split => (
-    <li key={split} data-time={split} onClick={event => handleClick(+event.target.dataset.time)}>
+    <li
+      key={split}
+      data-time={split}
+      onClick={event => handleClick(+event.target.dataset.time)}
+      className={split === highlighted ? 'highlight' : ''}
+    >
       {formatTime(split)}
     </li>
   ));
 
-  return <ul>{splitElements}</ul>;
+  return (
+    <div>
+      <h2 className="subtitle">Splits</h2>
+      <ul className="split-list">{splitElements}</ul>
+    </div>
+  );
 }

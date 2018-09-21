@@ -1,32 +1,65 @@
-.App {
+body {
+  margin: 0;
+  padding: 0;
   text-align: center;
-}
+  font-family: 'Inconsolata', monospace;
+  color: #141414; }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
+.header {
+  background-color: #141414;
   height: 80px;
-}
+  padding: 10px 0;
+  color: #fff; }
+  .header .title {
+    font-size: 32px; }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
+.timer {
+  width: 400px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .timer .display {
+    min-height: 50px;
+    min-width: 300px;
+    padding: 30px 50px 10px 50px;
+    font-size: 48px;
+    text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.05); }
+  .timer .button {
+    width: 140px;
+    padding: 10px;
+    margin: 20px 0;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-family: 'Inconsolata', monospace;
+    cursor: pointer; }
+    .timer .button:hover {
+      box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.05); }
+    .timer .button.btn-primary {
+      background-color: #31d391;
+      border-color: #31d391; }
+    .timer .button.btn-secondary {
+      background-color: #d9bf8e;
+      border-color: #d9bf8e; }
+  .timer .subtitle::after {
+    content: '';
+    width: 140px;
+    height: 1px;
+    display: block;
+    background: #31d391; }
+  .timer .split-list {
+    list-style-type: none;
+    padding: 0; }
+    .timer .split-list li {
+      padding: 7px;
+      cursor: pointer; }
+      .timer .split-list li.highlight {
+        font-size: 18px;
+        color: #31d391; }
 
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+@media only screen and (max-width: 640px) {
+  .timer,
+  .display {
+    width: 100%; } }

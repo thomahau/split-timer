@@ -10,7 +10,9 @@ export function formatTime(ms) {
   const seconds = Math.floor(millisecondsLeft / 1000);
   millisecondsLeft = millisecondsLeft % 1000;
 
+  const deciSeconds = Math.floor(millisecondsLeft / 100);
+
   return `${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}:${
     seconds < 10 ? '0' : ''
-  }${seconds}`;
+  }${seconds}.${deciSeconds}`;
 }

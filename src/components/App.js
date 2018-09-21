@@ -4,9 +4,9 @@ import './App.css';
 
 export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1 className="App-title">Split Timer</h1>
+    <div>
+      <header className="header">
+        <h1 className="title">Split Timer</h1>
       </header>
       <Timer />
     </div>

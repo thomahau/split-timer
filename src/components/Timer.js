@@ -9,6 +9,7 @@ export default class Timer extends React.Component {
       running: false,
       start: null,
       time: null,
+      highlighted: null,
       splits: []
     };
   }
@@ -21,7 +22,8 @@ export default class Timer extends React.Component {
     } else {
       this.setState({
         running: true,
-        start: this.state.start ? Date.now() - this.state.start : Date.now()
+        start: this.state.start ? Date.now() - this.state.start : Date.now(),
+        highlighted: null
       });
       this.timer = setInterval(() => {
         this.setState({
@@ -37,16 +39,27 @@ export default class Timer extends React.Component {
       running: false,
       time: targetTime,
       start: targetTime,
+      highlighted: targetTime,
       splits: this.state.splits.filter(split => split <= targetTime)
     });
   };
 
   render() {
+    const buttonColor = this.state.running ? 'secondary' : 'primary';
+
     return (
-      <div>
-        <div className="display">{this.state.time ? formatTime(this.state.time) : '00:00:00'}</div>
-        <button onClick={this.handleButtonClick}>{this.state.running ? 'SPLIT' : 'START'}</button>
-        <SplitList splits={this.state.splits} handleClick={this.handleSplitClick} />
+      <div className="timer">
+        <div className="display">
+          {this.state.time ? formatTime(this.state.time) : '00:00:00.0'}
+        </div>
+        <button className={`button btn-${buttonColor}`} onClick={this.handleButtonClick}>
+          {this.state.running ? 'split' : this.state.time ? 'continue' : 'start'}
+        </button>
+        <SplitList
+          splits={this.state.splits}
+          highlighted={this.state.highlighted}
+          handleClick={this.handleSplitClick}
+        />
       </div>
     );
   }

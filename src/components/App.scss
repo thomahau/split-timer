@@ -1,0 +1,90 @@
+@import '../helpers.scss';
+
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: 'Inconsolata', monospace;
+  color: $color-dark;
+}
+
+.header {
+  background-color: $color-dark;
+  height: 80px;
+  padding: 10px 0;
+  color: #fff;
+
+  .title {
+    font-size: 32px;
+  }
+}
+
+.timer {
+  width: 400px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .display {
+    min-height: 50px;
+    min-width: 300px;
+    padding: 30px 50px 10px 50px;
+    font-size: 48px;
+    text-shadow: $shadow;
+  }
+
+  .button {
+    width: $width;
+    padding: 10px;
+    margin: 20px 0;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-family: 'Inconsolata', monospace;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: $shadow;
+    }
+
+    &.btn-primary {
+      @include btn-primary;
+    }
+
+    &.btn-secondary {
+      @include btn-secondary;
+    }
+  }
+
+  .subtitle::after {
+    content: '';
+    width: $width;
+    height: 1px;
+    display: block;
+    background: $color-primary;
+  }
+
+  .split-list {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      padding: 7px;
+      cursor: pointer;
+
+      &.highlight {
+        font-size: 18px;
+        color: $color-primary;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .timer,
+  .display {
+    width: 100%;
+  }
+}

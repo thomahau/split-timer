@@ -1,0 +1,17 @@
+$color-primary: #31d391;
+$color-secondary: #d9bf8e;
+$color-dark: #141414;
+
+$shadow: 3px 3px 0 rgba(0, 0, 0, 0.05);
+
+$width: 140px;
+
+@mixin btn-primary {
+  background-color: $color-primary;
+  border-color: $color-primary;
+}
+
+@mixin btn-secondary {
+  background-color: $color-secondary;
+  border-color: $color-secondary;
+}
