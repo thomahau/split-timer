@@ -3,7 +3,7 @@ import { formatTime } from '../helpers';
 
 export default function SplitList({ splits, highlighted, handleClick }) {
   if (!splits.length) return null;
-
+  // Map over array of split values, building list elements
   const splitElements = splits.map(split => (
     <li
       key={split}

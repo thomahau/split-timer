@@ -15,11 +15,13 @@ export default class Timer extends React.Component {
   }
 
   handleButtonClick = () => {
+    // If the timer is running, the button serves to record a split
     if (this.state.running) {
       this.setState({
         splits: [...this.state.splits, this.state.time]
       });
     } else {
+      // Otherwise, set timer to run and set / update start time
       this.setState({
         running: true,
         start: this.state.start ? Date.now() - this.state.start : Date.now(),
@@ -34,6 +36,8 @@ export default class Timer extends React.Component {
   };
 
   handleSplitClick = targetTime => {
+    // Clear the running timer;
+    // update timer value to reflect split which was clicked and remove splits after it
     clearInterval(this.timer);
     this.setState({
       running: false,

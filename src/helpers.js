@@ -1,3 +1,4 @@
+// Format milliseconds into user-friendly string
 export function formatTime(ms) {
   let millisecondsLeft = ms;
 
